@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TF1 INFO - L'information en direct : Actualités France et Monde</title>
+    <!-- Tailwind CSS pour un design ultra-fluide -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tf1: {
+                            blue: '#001E50',
+                            navy: '#001438',
+                            red: '#E60000',
+                            darkRed: '#CC0000',
+                            grayBg: '#F4F6F9',
+                            slateBorder: '#E2E8F0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .badge-pulse {
+            animation: pulse-red 1.8s infinite;
+        }
+        @keyframes pulse-red {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.95); }
+        }
+    </style>
+</head>
+<body class="bg-tf1-grayBg font-sans text-slate-900 antialiased min-h-screen flex flex-col">
+
+    <!-- Super-header / Groupe TF1 bar -->
+    <div class="bg-tf1-navy text-slate-300 text-[11px] py-1.5 px-4 font-medium border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <span class="text-white font-bold tracking-wider uppercase text-[10px] bg-slate-800 px-2 py-0.5 rounded">GROUPE TF1</span>
+                <div class="hidden sm:flex items-center gap-4 text-slate-400">
+                    <a href="#" class="hover:text-white transition">TF1+</a>
+                    <a href="#" class="hover:text-white transition">LCI</a>
+                    <a href="#" class="text-white font-semibold">TF1 INFO</a>
+                    <a href="#" class="hover:text-white transition">TF1 Pub</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 text-xs">
+                <span>Dimanche 11 Octobre 2026</span>
+                <span class="hidden md:inline-block text-slate-500">•</span>
+                <span class="hidden md:inline-block"><i class="fa-solid fa-location-dot text-tf1-red mr-1"></i> Paris 18°C</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="bg-white sticky top-0 z-50 shadow-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            
+            <!-- Logo area -->
+            <div class="flex items-center gap-8">
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="bg-tf1-red text-white font-black text-2xl sm:text-3xl px-2.5 py-1 rounded tracking-tighter shadow-sm group-hover:bg-tf1-darkRed transition">
+                        TF1
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-tf1-blue text-xl tracking-tight leading-none">INFO</span>
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-slate-400">En direct</span>
+                    </div>
+                </a>
+
+                <!-- Live Tag -->
+                <div class="hidden md:flex items-center gap-2 bg-red-50 text-tf1-red px-3 py-1 rounded-full border border-red-200 text-xs font-bold">
+                    <span class="w-2.5 h-2.5 rounded-full bg-tf1-red badge-pulse"></span>
+                    <span>ÉDITION SPÉCIALE</span>
+                </div>
+            </div>
+
+            <!-- Search and Action CTA -->
+            <div class="flex items-center gap-4">
+                <div class="relative hidden sm:block">
+                    <input type="text" placeholder="Rechercher une actualité..." class="bg-slate-100 text-xs text-slate-800 placeholder-slate-400 rounded-full py-2 pl-4 pr-10 w-48 sm:w-64 focus:outline-none focus:bg-white focus:ring-2 focus:ring-tf1-blue border border-slate-200 transition-all">
+                    <button class="absolute right-3 top-2.5 text-slate-400 hover:text-tf1-blue">
+                        <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                    </button>
+                </div>
+                <a href="#" class="bg-tf1-blue hover:bg-tf1-navy text-white text-xs font-bold px-4 py-2 rounded-md shadow-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-tv text-tf1-red"></i>
+                    <span>LE 13H EN DIRECT</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Section categories menu -->
+        <nav class="bg-tf1-blue text-white overflow-x-auto shadow-inner">
+            <div class="max-w-7xl mx-auto px-4 flex space-x-8 text-xs font-bold uppercase tracking-wider whitespace-nowrap py-3">
+                <a href="#" class="text-white border-b-2 border-tf1-red pb-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-fire text-tf1-red"></i> À La Une
+                </a>
+                <a href="#" class="text-slate-300 hover:text-white transition">France</a>
+                <a href="#" class="text-slate-300 hover:text-white transition">International</a>
+                <a href="#" class="text-slate-300 hover:text-white transition">Économie</a>
+                <a href="#" class="text-slate-300 hover:text-white transition">Société</a>
+                <a href="#" class="text-slate-300 hover:text-white transition">Faits Divers</a>
+                <a href="#" class="text-slate-300 hover:text-white transition">Culture</a>
+                <a href="#" class="text-slate-300 hover:text-white transition">Environnement</a>
+                <a href="#" class="text-slate-300 hover:text-white transition">Plein Écran</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Alert Banner -->
+    <div class="bg-tf1-red text-white shadow-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex items-center text-xs">
+            <span class="bg-white text-tf1-red font-black px-2 py-0.5 rounded text-[10px] uppercase mr-3 shrink-0 flex items-center gap-1 shadow-sm">
+                <i class="fa-solid fa-bolt"></i> FLASH INFO
+            </span>
+            <div class="overflow-hidden whitespace-nowrap font-semibold">
+                <span class="underline mr-2">13h45 :</span> Incident à la cathédrale Notre-Dame de Paris — Déploiement massif des secours de la capitale.
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- Primary Column: Article Lead Story -->
+            <section class="lg:col-span-8 space-y-8">
+
+                <!-- MAIN FEATURED ARTICLE -->
+                <article class="bg-white rounded-xl shadow-sm border border-tf1-slateBorder overflow-hidden">
+                    
+                    <!-- Cover Photo with Notre-Dame -->
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1478359844494-1092259d93e4?auto=format&fit=crop&w=1200&q=80" alt="Notre-Dame de Paris" class="w-full h-80 sm:h-[450px] object-cover">
+                        <div class="absolute top-4 left-4 bg-tf1-red text-white text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded shadow-lg flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-white badge-pulse"></span>
+                            FAITS DIVERS - URGENT
+                        </div>
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white">
+                            <span class="text-xs font-semibold text-slate-300 uppercase tracking-widest">Île-de-France • Paris</span>
+                            <h1 class="text-2xl sm:text-4xl font-bold font-serif leading-tight mt-1 text-white">
+                                Notre-Dame de Paris : un incident inédit provoque un départ d'incendie
+                            </h1>
+                        </div>
+                    </div>
+
+                    <!-- Article Body & Metadata -->
+                    <div class="p-6 sm:p-8 space-y-6">
+
+                        <!-- Meta bar -->
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-4 text-xs text-slate-500">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Journaliste" class="w-9 h-9 rounded-full object-cover border border-slate-200">
+                                <div>
+                                    <span class="font-bold text-slate-900 block">Par la rédaction TF1 INFO</span>
+                                    <span>Publié aujourd'hui à 13h42 • Mis à jour à 13h55</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button class="bg-slate-100 hover:bg-slate-200 text-slate-700 p-2 rounded-full text-xs transition" title="Partager">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </button>
+                                <button class="bg-slate-100 hover:bg-slate-200 text-slate-700 p-2 rounded-full text-xs transition" title="Sauvegarder">
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Chapeau -->
+                        <p class="text-lg font-semibold text-slate-800 leading-relaxed font-serif italic border-l-4 border-tf1-red pl-4 py-1 bg-slate-50 rounded-r">
+                            Un départ de feu très localisé s'est déclaré ce début d'après-midi au cœur du chantier de la cathédrale. À l'origine de l'alerte : une intrusion animale rocambolesque qui a mobilisé les pompiers de Paris.
+                        </p>
+
+                        <!-- Article Content -->
+                        <div class="space-y-4 text-slate-800 leading-relaxed text-base">
+                            <p>
+                                Une vive émotion s'est emparée du centre de Paris ce dimanche vers 13h15. Des détecteurs de fumée de haute précision installés sur le site de Notre-Dame de Paris ont déclenché l'alerte générale, provoquant le déploiement immédiat des services de secours et de la Brigade de Sapeurs-Pompiers de Paris (BSPP).
+                            </p>
+
+                            <p>
+                                Une trentaine de véhicules de pompiers et près de 70 hommes ont convergé en quelques minutes sur l'île de la Cité. Les abords du Parvis ont immédiatement été sécurisés par les forces de l'ordre le temps de localiser le sinistre.
+                            </p>
+
+                            <!-- Image 2: Emergency Response Firetrucks -->
+                            <div class="my-6 space-y-2">
+                                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80" alt="Sapeurs-pompiers de Paris" class="w-full h-72 object-cover rounded-lg shadow-sm">
+                                <p class="text-xs text-slate-500 italic">
+                                    Les pompiers de Paris sont intervenus très rapidement sur les lieux du sinistre. / Photo AFP
+                                </p>
+                            </div>
+
+                            <h2 class="font-bold text-slate-900 text-xl font-serif mt-6">
+                                Un cochon échappé s'introduit dans le bâtiment
+                            </h2>
+
+                            <p>
+                                C'est lors de la première reconnaissance à l'intérieur du monument que les spécialistes ont découvert la cause insolite du déclenchement d'incendie. Selon les premiers rapports confirmés par les autorités sur place, un cochon s'est introduit dans les lieux de manière inexpliquée.
+                            </p>
+
+                            <p>
+                                L'animal, parvenu à franchir les barrages extérieurs du chantier, a déambulé dans une zone technique sécurisée. Dans sa course, l'animal a percuté et renversé un support sur lequel se trouvait une bougie restée allumée près d'un dépôt de bâches ignifugées et de matériel de charpente.
+                            </p>
+
+                            <!-- Image 3: Farm animal / Pig closeup -->
+                            <div class="my-6 space-y-2">
+                                <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1000&q=80" alt="Cochon" class="w-full h-72 object-cover rounded-lg shadow-sm">
+                                <p class="text-xs text-slate-500 italic">
+                                    L'animal s'est frayé un chemin à travers une grille d'accès technique avant de renverser le luminaire. / Photo Illustration Unsplash
+                                </p>
+                            </div>
+
+                            <p>
+                                Le contact direct de la flamme avec le revêtement synthétique a provoqué un dégagement immédiat d'épaisses fumées grises, activant instantanément les alarmes de sécurité incendie.
+                            </p>
+
+                            <blockquote class="bg-slate-100 p-5 border-l-4 border-tf1-blue text-sm italic text-slate-700 my-6 rounded-r">
+                                « Le départ de feu a été maîtrisé au bout de quelques minutes grâce à la réaction exemplaire des capteurs et de nos équipes d'intervention. Les dégâts matériels sont minimes. Quant au suidé, il a été capturé sans blessure par la patrouille », a déclaré le porte-parole des secours.
+                            </blockquote>
+
+                            <p>
+                                Un périmètre de vérification reste établi pour s'assurer qu'aucun autre foyer secondaire ne subsiste dans les combles. Les travaux ont repris leur cours normal en fin d'après-midi.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- SECONDARY NEWS ARTICLES -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Card 1 -->
+                    <article class="bg-white rounded-xl shadow-sm border border-tf1-slateBorder overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" alt="Paris Panorama" class="w-full h-48 object-cover">
+                            <div class="p-5 space-y-2">
+                                <span class="text-[11px] font-extrabold text-tf1-red uppercase tracking-wider">Île-de-France</span>
+                                <h3 class="font-bold text-slate-900 text-base leading-snug hover:text-tf1-blue cursor-pointer transition">
+                                    Transports à Paris : hausse de la fréquence sur les lignes principales dès la semaine prochaine
+                                </h3>
+                                <p class="text-xs text-slate-600 line-clamp-2">
+                                    Île-de-France Mobilités a confirmé le renforcement des plages horaires du réseau métropolitain pour l'automne.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-4 text-[11px] text-slate-400 font-medium">Il y a 2 heures</div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="bg-white rounded-xl shadow-sm border border-tf1-slateBorder overflow-hidden flex flex-col justify-between hover:shadow-md transition">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Technologie et Économie" class="w-full h-48 object-cover">
+                            <div class="p-5 space-y-2">
+                                <span class="text-[11px] font-extrabold text-tf1-red uppercase tracking-wider">Technologie</span>
+                                <h3 class="font-bold text-slate-900 text-base leading-snug hover:text-tf1-blue cursor-pointer transition">
+                                    Souveraineté numérique : la France investit massivement dans les nouveaux centres de données
+                                </h3>
+                                <p class="text-xs text-slate-600 line-clamp-2">
+                                    Un nouveau programme européen de soutien aux infrastructures cloud de proximité vient d'être signé.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-4 text-[11px] text-slate-400 font-medium">Il y a 4 heures</div>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- Sidebar / Fil Info -->
+            <aside class="lg:col-span-4 space-y-6">
+
+                <!-- Fil Info Widget -->
+                <div class="bg-white rounded-xl shadow-sm border border-tf1-slateBorder p-5">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+                        <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wider flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-tf1-red badge-pulse"></span>
+                            Fil Info en direct
+                        </h3>
+                        <span class="text-[10px] font-black text-white bg-tf1-red px-2 py-0.5 rounded">DIRECT</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="border-b border-slate-100 pb-3">
+                            <span class="text-[11px] font-extrabold text-tf1-red">13h55</span>
+                            <p class="text-xs font-semibold text-slate-800 hover:text-tf1-blue cursor-pointer mt-0.5">
+                                Incendie à Notre-Dame : la préfecture indique que l'animal a été pris en charge.
+                            </p>
+                        </div>
+
+                        <div class="border-b border-slate-100 pb-3">
+                            <span class="text-[11px] font-bold text-slate-500">13h30</span>
+                            <p class="text-xs font-semibold text-slate-800 hover:text-tf1-blue cursor-pointer mt-0.5">
+                                Météo : retour du soleil prévu sur la moitié nord du pays à partir de mardi.
+                            </p>
+                        </div>
+
+                        <div class="border-b border-slate-100 pb-3">
+                            <span class="text-[11px] font-bold text-slate-500">12h45</span>
+                            <p class="text-xs font-semibold text-slate-800 hover:text-tf1-blue cursor-pointer mt-0.5">
+                                Football : résultats de la 8ème journée du championnat national.
+                            </p>
+                        </div>
+
+                        <div class="border-b border-slate-100 pb-3">
+                            <span class="text-[11px] font-bold text-slate-500">12h10</span>
+                            <p class="text-xs font-semibold text-slate-800 hover:text-tf1-blue cursor-pointer mt-0.5">
+                                Pouvoir d'achat : les prix des produits de consommation courante restent stables.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video replay widget -->
+                <div class="bg-tf1-blue text-white rounded-xl p-5 shadow-sm overflow-hidden relative">
+                    <span class="bg-tf1-red text-[10px] font-black uppercase px-2 py-0.5 rounded shadow">REPLAY JT</span>
+                    <h3 class="font-bold text-lg mt-2">Le Journal de 13 Heures</h3>
+                    <p class="text-xs text-slate-300 mt-1">Retrouvez l'édition complète du journal télévisé.</p>
+                    <div class="relative mt-4 rounded-lg overflow-hidden group cursor-pointer border border-slate-700">
+                        <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=500&q=80" alt="Plateau TV JT" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div class="w-12 h-12 bg-tf1-red hover:bg-tf1-darkRed rounded-full flex items-center justify-center text-white pl-1 shadow-lg transition">
+                                <i class="fa-solid fa-play text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- Official Media Footer -->
+    <footer class="bg-tf1-navy text-slate-400 text-xs py-10 border-t-4 border-tf1-red mt-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="bg-tf1-red text-white font-black text-xl px-2 py-0.5 rounded">TF1</div>
+                    <span class="text-white font-bold text-lg tracking-tight">INFO</span>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Toute l'information en continu, le direct, la météo, les reportages et l'actualité en France et à l'Étranger avec TF1 INFO.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">Rubriques</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition">Actualité France</a></li>
+                    <li><a href="#" class="hover:text-white transition">International</a></li>
+                    <li><a href="#" class="hover:text-white transition">Économie & Financement</a></li>
+                    <li><a href="#" class="hover:text-white transition">Culture et Médias</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">Groupe TF1</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition">TF1+ Streaming</a></li>
+                    <li><a href="#" class="hover:text-white transition">LCI La Chaîne Info</a></li>
+                    <li><a href="#" class="hover:text-white transition">TF1 Corporate</a></li>
+                    <li><a href="#" class="hover:text-white transition">Recrutement</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">Informations Légales</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition">Mentions Légales</a></li>
+                    <li><a href="#" class="hover:text-white transition">Politique de Confidentialité</a></li>
+                    <li><a href="#" class="hover:text-white transition">Gestion des Cookies</a></li>
+                    <li><a href="#" class="hover:text-white transition">CGU TF1 INFO</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px]">
+            <p>© 2026 GROUPE TF1 — Tous droits réservés.</p>
+            <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook text-base"></i></a>
+                <a href="#" class="hover:text-white"><i class="fa-brands fa-x-twitter text-base"></i></a>
+                <a href="#" class="hover:text-white"><i class="fa-brands fa-instagram text-base"></i></a>
+                <a href="#" class="hover:text-white"><i class="fa-brands fa-youtube text-base"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
